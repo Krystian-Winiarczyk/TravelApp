@@ -1,0 +1,57 @@
+<!---->
+<div class="landing">
+  <div class="container d-flex align-items-center h-75">
+    <div class="row text-center w-100 mt-5 mx-auto">
+      <div class="card w-100" style="background-color: transparent; box-shadow: 2px 2px 40px -10px rgb(65, 135, 186)">
+        <h5 class="card-header text-white">Sprecyzuj czego szukasz</h5>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="inputEmail1" class="text-white">Kraj</label>
+              <input type="text" class="form-control" id="inputEmail1" [(ngModel)]="country" (ngModelChange)="onChange()">
+            </div>
+            <div class="col-md-2">
+              <label for="inputEmail2" class="text-white">Ilość osób</label>
+              <input type="number" class="form-control" id="inputEmail2" [(ngModel)]="count" (ngModelChange)="onChange()" min="0">
+            </div>
+            <div class="col-md-6">
+              <label class="text-white">Data</label>
+              <div class="row">
+                <div class="col-md-6 input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Od</span>
+                  </div>
+                  <input type="date" class="form-control">
+                </div>
+                <div class="col-md-6 input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon2">Do</span>
+                  </div>
+                  <input type="date" class="form-control">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button (click)="onChange()">x</button>
+</div>
+<!---->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-4 col-md-6 my-2" *ngFor="let travel of travels">
+      <div class="card mx-auto" style="width: 20rem;">
+        <img src="{{travel.imagesPaths[0]}}" class="card-img-top" alt="..." style="min-height: 250px; object-fit: cover">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ travel.hotelName }}
+          </h5>
+          <p class="card-text">{{travel.description.slice(0, 120)}} ...</p>
+          <a href="#" class="btn btn-primary" routerLink="/travel/{{travel.id}}">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
