@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {TravelsService} from "../../Services/travels.service";
 import {Travel} from "../../Models/travel.model";
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-travel-details',
@@ -10,6 +11,8 @@ import {Travel} from "../../Models/travel.model";
 })
 export class TravelDetailsComponent implements OnInit {
   travel: Travel;
+  stars: number[];
+  faStar = faStar;
 
   constructor(
     private ar: ActivatedRoute,
@@ -20,6 +23,7 @@ export class TravelDetailsComponent implements OnInit {
     this.ar.params.subscribe(param => {
       this.travel = this.travelsService.getTripById(param.id)[0];
     })
+    this.stars = Array(this.travel.tripStars);
   }
 
   onClick() {

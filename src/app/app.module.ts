@@ -7,6 +7,9 @@ import { RouterModule, Routes} from "@angular/router";
 import { HomeComponent } from './Components/home/home.component';
 import { HeaderComponent } from './Components/header/header.component';
 import {FormsModule} from "@angular/forms";
+import { CarouselComponent } from './Components/carousel/carousel.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 const routers: Routes = [
   { path: "", component: HomeComponent },
@@ -18,12 +21,15 @@ const routers: Routes = [
     AppComponent,
     TravelDetailsComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routers),
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,2 +1,25 @@
-<p>travel-details works!</p>
-<button (click)="onClick()">Show Travel</button>
+<div class="container-c">
+  <app-carousel [slides]="travel.imagesPaths"></app-carousel>
+</div>
+
+<div class="container">
+<!--  <span *ngFor="let star of stars">-->
+<!--    <fa-icon [icon]="faStar"></fa-icon>-->
+<!--  </span>-->
+  <div class="row my-3">
+    <div class="col-md-8">
+      x
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h5 class="card-header text-center">Attractions</h5>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let attr of travel.actractions">{{attr}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
