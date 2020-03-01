@@ -10,6 +10,7 @@ import {FormsModule} from "@angular/forms";
 import { CarouselComponent } from './Components/carousel/carousel.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { TravelAddComponent } from './Components/travel-add/travel-add.component';
 
 const routers: Routes = [
   { path: "", component: HomeComponent },
@@ -22,7 +23,8 @@ const routers: Routes = [
     TravelDetailsComponent,
     HomeComponent,
     HeaderComponent,
-    CarouselComponent
+    CarouselComponent,
+    TravelAddComponent
   ],
   imports: [
     BrowserModule,

@@ -19,6 +19,10 @@ export class TravelsService {
 
   constructor() {
   }
+  
+  onAddTravel(travel: Travel) {
+    
+  }
 
   getTripById(id: string) {
     return this.travels.filter(param => {
