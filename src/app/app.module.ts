@@ -9,7 +9,7 @@ import { HeaderComponent } from './Components/header/header.component';
 import {FormsModule} from "@angular/forms";
 import { CarouselComponent } from './Components/carousel/carousel.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 const routers: Routes = [
   { path: "", component: HomeComponent },

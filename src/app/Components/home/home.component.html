@@ -21,13 +21,13 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Od</span>
                   </div>
-                  <input type="date" class="form-control">
+                  <input type="date" class="form-control" [(ngModel)]="startDate" (ngModelChange)="onChange()" min="{{currentDate | date:'yyyy-MM-dd'}}">
                 </div>
                 <div class="col-md-6 input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon2">Do</span>
                   </div>
-                  <input type="date" class="form-control">
+                  <input type="date" class="form-control" [(ngModel)]="endDate" (ngModelChange)="onChange()" min="{{startDate | date:'yyyy-MM-dd'}}">
                 </div>
               </div>
             </div>

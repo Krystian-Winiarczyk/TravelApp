@@ -10,7 +10,11 @@ import {TravelsService} from "../../Services/travels.service";
 export class HomeComponent implements OnInit {
   country: string = "";
   count: number = 0;
+  currentDate: Date = new Date();
+  startDate: Date;
+  endDate: Date;
   travels: Travel[] = [];
+  testData = "2020-03-10";
 
   constructor(private travelsService: TravelsService) {}
 
@@ -19,8 +23,12 @@ export class HomeComponent implements OnInit {
   }
 
   onChange() {
-    if (this.country !== "" || (this.count !== 0 && this.count !== null))
-      this.travels = this.travelsService.getFiltredTravels(this.country, this.count);
+    if (
+      this.country || 
+      this.count ||
+      this.startDate || 
+      this.endDate
+    ) this.travels = this.travelsService.getFiltredTravels(this.country, this.count, this.startDate, this.endDate);
     else
       this.travels = this.travelsService.getTravels();
   }

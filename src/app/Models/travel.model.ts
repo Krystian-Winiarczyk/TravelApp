@@ -7,8 +7,8 @@ export class Travel {
     public description: string,
     public hotelName: string,
     public tripStars: number,
-    public startDate: number,
-    public endDate: number,
+    public startDate: string,
+    public endDate: string,
     public actractions: string[],
     public imagesPaths: string[]
   ) {}
