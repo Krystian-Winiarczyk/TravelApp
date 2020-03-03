@@ -3,12 +3,18 @@
 </div>
 
 <div class="container">
-<!--  <span *ngFor="let star of stars">-->
-<!--    <fa-icon [icon]="faStar"></fa-icon>-->
-<!--  </span>-->
   <div class="row my-3">
     <div class="col-md-8">
-      x
+      <div class="ml-3">
+        <h1 class="display-4">{{travel.name}}</h1>
+        <h4>{{travel.hotelName}}</h4>
+        <span *ngFor="let star of stars" style="color: gold">
+          <fa-icon [icon]="faStar"></fa-icon>
+      </span>
+      </div>
+      <p class="mt-5 lead">
+        {{travel.description}}
+      </p>
     </div>
     <div class="col-md-4">
       <div class="card">

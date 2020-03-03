@@ -14,6 +14,7 @@ import { TravelAddComponent } from './Components/travel-add/travel-add.component
 
 const routers: Routes = [
   { path: "", component: HomeComponent },
+  { path: "travel/add", component: TravelAddComponent },
   { path: "travel/:id", component: TravelDetailsComponent }
 ];
 

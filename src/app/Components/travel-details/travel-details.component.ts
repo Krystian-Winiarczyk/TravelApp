@@ -22,7 +22,7 @@ export class TravelDetailsComponent implements OnInit {
   ngOnInit() {
     this.ar.params.subscribe(param => {
       this.travel = this.travelsService.getTripById(param.id)[0];
-    })
+    });
     this.stars = Array(this.travel.tripStars);
   }
 
