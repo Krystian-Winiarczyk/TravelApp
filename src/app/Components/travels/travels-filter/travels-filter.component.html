@@ -1,4 +1,3 @@
-<!---->
 <div class="landing">
   <div class="container d-flex align-items-center h-75">
     <div class="row text-center w-100 mt-5 mx-auto">
@@ -32,24 +31,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!---->
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-lg-4 col-md-6 my-2" *ngFor="let travel of travels">
-      <div class="card mx-auto" style="width: 20rem;">
-        <img src="{{travel.imagesPaths[0]}}" class="card-img-top" alt="..." style="min-height: 250px; object-fit: cover">
-        <div class="card-header">{{travel.country}}</div>
-        <div class="card-body">
-          <h5 class="card-title">
-            {{ travel.hotelName }}
-          </h5>
-          <p class="card-text">{{travel.description.slice(0, 120)}} ...</p>
-          <a href="#" class="btn btn-primary" routerLink="/travel/{{travel.id}}">Read more</a>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {TravelsService} from "../../Services/travels.service";
-import {Travel} from "../../Models/travel.model";
+import {TravelsService} from "../../../Services/travels.service";
+import {Travel} from "../../../Models/travel.model";
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
