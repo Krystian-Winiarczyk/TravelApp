@@ -9,7 +9,9 @@ export class Travel {
     public tripStars: number,
     public startDate: string,
     public endDate: string,
-    public actractions: string[],
-    public imagesPaths: string[]
+    public atuts: string[],
+    public imagesPaths: string[],
+    public price: number,
+    public transport: string
   ) {}
 }

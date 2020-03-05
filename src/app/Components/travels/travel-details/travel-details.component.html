@@ -5,7 +5,7 @@
 <div class="container">
   <div class="row my-3">
     <div class="col-md-8">
-      <div class="ml-3">
+      <div class="ml-2">
         <h1 class="display-4">{{travel.name}}</h1>
         <h4>{{travel.hotelName}}</h4>
         <span *ngFor="let star of stars" style="color: gold">
@@ -17,15 +17,60 @@
       </p>
     </div>
     <div class="col-md-4">
+      <div class="alert alert-info text-center" role="alert">
+        {{travel.personsCount}} Osoby - {{travel.price}} PLN 
+      </div>
       <div class="card">
-        <h5 class="card-header text-center">Attractions</h5>
+        <h5 class="card-header text-center">Atuty</h5>
         <ul class="list-group">
-          <li class="list-group-item" *ngFor="let attr of travel.actractions">{{attr}}</li>
+          <li class="list-group-item" *ngFor="let attr of travel.atuts">{{attr}}</li>
         </ul>
       </div>
     </div>
   </div>
-  
+  <div class="row">
+    <h2 class="display-4 ml-3" (click)="onClick()">Transport</h2>
+    <div class="col-md-12 mb-5" [ngSwitch]="travel.transport">
+      <!--   opcja 1     -->
+      <div class="row my-5 text-center" *ngSwitchCase="'Samolot'">
+        <div class="col-sm-2 offset-md-1">
+          <fa-icon [icon]="faMap" style="display: block" size="2x"></fa-icon>
+          <p style="font-size: 22px">Polska</p>
+        </div>
+        <div class="col-sm-6" style="margin-top: -20px">
+          <fa-icon [icon]="faPlane" size="2x"></fa-icon>
+          <div style="border-top: 2px dashed black; margin-top: 10px; width: 120%; margin-left: -10%"></div>
+        </div>
+        <div class="col-sm-2">
+          <fa-icon [icon]="faMap" style="display: block" size="2x"></fa-icon>
+          <p style="font-size: 22px">Egipt</p>
+        </div>
+      </div>
+<!--   opcja 2   -->
+      <div class="row my-5 text-center" *ngSwitchDefault>
+        <div class="col-sm-2 offset-md-1">
+          <fa-icon [icon]="faMap" style="display: block" size="2x"></fa-icon>
+          <p style="font-size: 22px">Polska</p>
+        </div>
+        <div class="col-sm-2" style="margin-top: -20px">
+          <fa-icon [icon]="faBus" size="2x"></fa-icon>
+          <div style="border-top: 2px dashed black; margin-top: 10px; width: 130%; margin-left: -15%"></div>
+        </div>
+        <div class="col-sm-2">
+          <fa-icon [icon]="faMap" style="display: block" size="2x"></fa-icon>
+          <p style="font-size: 22px">Francja</p>
+        </div>
+        <div class="col-sm-2" style="margin-top: -20px">
+          <fa-icon [icon]="faBus" size="2x"></fa-icon>
+          <div style="border-top: 2px dashed black; margin-top: 10px; width: 130%; margin-left: -15%"></div>
+        </div>
+        <div class="col-sm-2">
+          <fa-icon [icon]="faMap" style="display: block" size="2x"></fa-icon>
+          <p style="font-size: 22px">Egipt</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 

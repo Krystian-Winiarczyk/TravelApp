@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {TravelsService} from "../../../Services/travels.service";
 import {Travel} from "../../../Models/travel.model";
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faPlane, faMapMarkerAlt, faBus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-travel-details',
@@ -13,6 +13,9 @@ export class TravelDetailsComponent implements OnInit {
   travel: Travel;
   stars: number[];
   faStar = faStar;
+  faPlane = faPlane;
+  faMap = faMapMarkerAlt;
+  faBus = faBus;
 
   constructor(
     private ar: ActivatedRoute,
