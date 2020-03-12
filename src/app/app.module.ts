@@ -12,6 +12,9 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { TravelAddComponent } from './Components/travels/travel-add/travel-add.component';
 import { TravelsComponent } from './Components/travels/travels.component';
 import { TravelsFilterComponent } from './Components/travels/travels-filter/travels-filter.component';
+import { TravelHotelComponent } from './Components/travels/travel-details/travel-hotel/travel-hotel.component';
+import { TravelTransportComponent } from './Components/travels/travel-details/travel-transport/travel-transport.component';
+import { TravelDescComponent } from './Components/travels/travel-details/travel-desc/travel-desc.component';
 
 const routers: Routes = [
   { path: "", component: TravelsComponent },
@@ -27,7 +30,10 @@ const routers: Routes = [
     CarouselComponent,
     TravelAddComponent,
     TravelsComponent,
-    TravelsFilterComponent
+    TravelsFilterComponent,
+    TravelHotelComponent,
+    TravelTransportComponent,
+    TravelDescComponent
   ],
   imports: [
     BrowserModule,

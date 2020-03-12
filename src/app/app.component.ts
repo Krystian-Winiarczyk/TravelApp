@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Travel} from "./Models/travel.model";
-import {TravelsService} from "./Services/travels.service";
 
 @Component({
   selector: 'app-root',
