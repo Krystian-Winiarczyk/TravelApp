@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Travel} from "../Models/travel.model";
+import {HttpClient, HttpParams} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TravelsService {
   travels: Travel[] = [
-    new Travel("m2omgm3gmdsml", "???", 2, "Egipt", "Położony w regionie Makadi z pięknym widokiem na zatokę, bezpośrednio przy piaszczystej plaży, jest idealnym miejscem na pełen relaks i udany odpoczynek. Przyjazna, relaksująca atmosfera i sympatyczny zespół animatorów zapewniają prawdziwie wakacyjny klimat i świetną zabawę, a amatorów nurkowania ucieszą dobre warunki i ładna rafa koralowa. Duży, zadbany basen ze zjeżdżalniami to doskonałe miejsce na słoneczne odprężenie i wodną zabawę. A na koniec nic tak nie poprawia humoru jak smakowity posiłek po dniu pełnym aktywności na świeżym powietrzu!", { name: "Dobry Hotel", stars: 4, description: "lorem ipsum"}, 5, "2020-03-12", "2020-03-16", ["Test attr", "Test attr 2", "Test attr 3", "Test attr 4"], ["https://ocdn.eu/pulscms-transforms/1/mn7k9kuTURBXy9hNjFiYjE2NS0yNjBhLTRiZGQtYmU5Ny1kNTU2MWExMGJjYzEuanBlZ5GVAs0DBwDDw4GhMAE", "https://dziendobry.tvn.pl/media/cache/content_cover/xgettyimages-531252132-jpg.jpg.pagespeed.ic.icMi4w-HJg.jpg", "https://media.wplm.pl/thumbs/NzIweDQ0Mi9jX2MvdV8xL2NjX2M5MWYwL3AvMjAxOS8xMi8yNi85NDgvNTMyLzYxMzYxYTNkY2Y0MDQ1MDBhYTQzM2NjMjVjM2JiOTUxLmpwZWc=.jpeg"], 2000, { type: "Samolot", from: "Polska", to: "Egipt" }),
+    new Travel("5e6aa5db0b19c10ebbc64cf7", "???", 2, "Egipt", "Położony w regionie Makadi z pięknym widokiem na zatokę, bezpośrednio przy piaszczystej plaży, jest idealnym miejscem na pełen relaks i udany odpoczynek. Przyjazna, relaksująca atmosfera i sympatyczny zespół animatorów zapewniają prawdziwie wakacyjny klimat i świetną zabawę, a amatorów nurkowania ucieszą dobre warunki i ładna rafa koralowa. Duży, zadbany basen ze zjeżdżalniami to doskonałe miejsce na słoneczne odprężenie i wodną zabawę. A na koniec nic tak nie poprawia humoru jak smakowity posiłek po dniu pełnym aktywności na świeżym powietrzu!", { name: "Dobry Hotel", stars: 4, description: "lorem ipsum"}, 5, "2020-03-12", "2020-03-16", ["Test attr", "Test attr 2", "Test attr 3", "Test attr 4"], ["https://ocdn.eu/pulscms-transforms/1/mn7k9kuTURBXy9hNjFiYjE2NS0yNjBhLTRiZGQtYmU5Ny1kNTU2MWExMGJjYzEuanBlZ5GVAs0DBwDDw4GhMAE", "https://dziendobry.tvn.pl/media/cache/content_cover/xgettyimages-531252132-jpg.jpg.pagespeed.ic.icMi4w-HJg.jpg", "https://media.wplm.pl/thumbs/NzIweDQ0Mi9jX2MvdV8xL2NjX2M5MWYwL3AvMjAxOS8xMi8yNi85NDgvNTMyLzYxMzYxYTNkY2Y0MDQ1MDBhYTQzM2NjMjVjM2JiOTUxLmpwZWc=.jpeg"], 2000, { type: "Samolot", from: "Polska", to: "Egipt" }),
     
     new Travel("oiwmgrom4309i2039", "????", 2, "Polska", "Położony w regionie Makadi z pięknym widokiem na zatokę, bezpośrednio przy piaszczystej plaży, jest idealnym miejscem na pełen relaks i udany odpoczynek. Przyjazna, relaksująca atmosfera i sympatyczny zespół animatorów zapewniają prawdziwie wakacyjny klimat i świetną zabawę, a amatorów nurkowania ucieszą dobre warunki i ładna rafa koralowa. Duży, zadbany basen ze zjeżdżalniami to doskonałe miejsce na słoneczne odprężenie i wodną zabawę. A na koniec nic tak nie poprawia humoru jak smakowity posiłek po dniu pełnym aktywności na świeżym powietrzu!", { name: "Dobry Hotel", stars: 4, description: "lorem ipsum"}, 4, "2020-03-12", "2020-03-29", ["Test attr", "Test attr 2", "Test attr 3", "Test attr 4"], ["https://dag08uxs564ub.cloudfront.net/images/Pieniny_mountains_in_Poland_-_view_on_Tatras.width-1200.jpg", "https://wallpaperaccess.com/full/370035.jpg", "https://jakubpolomski.com/wp-content/uploads/2018/01/Poland-Landscape-Photo-Jakub-Polomski-12BSK0012.jpg"], 1400, { type: "Bus", from: "Polska", to: "Polska" }),
     
@@ -17,10 +18,15 @@ export class TravelsService {
     new Travel("dfgoen-3435", "??????", 5, "Francja", "Położony w regionie Makadi z pięknym widokiem na zatokę, bezpośrednio przy piaszczystej plaży, jest idealnym miejscem na pełen relaks i udany odpoczynek. Przyjazna, relaksująca atmosfera i sympatyczny zespół animatorów zapewniają prawdziwie wakacyjny klimat i świetną zabawę, a amatorów nurkowania ucieszą dobre warunki i ładna rafa koralowa. Duży, zadbany basen ze zjeżdżalniami to doskonałe miejsce na słoneczne odprężenie i wodną zabawę. A na koniec nic tak nie poprawia humoru jak smakowity posiłek po dniu pełnym aktywności na świeżym powietrzu!", { name: "Dobry Hotel", stars: 4, description: "lorem ipsum"}, 1, "2020-03-11", "2020-03-14", ["Test attr", "Test attr 2", "Test attr 3", "Test attr 4"], ["https://wallpaperaccess.com/full/111778.jpg", "https://wallpaperaccess.com/full/111777.jpg", "https://media.holidayme.com/wp-content/uploads/2018/04/09113059/Holidayme_france_shutterstock_292335338.jpg"], 3000, { type: "Bus", from: "Polska", to: "Portugalia" })
   ];
 
-  constructor() {
-  }
+  constructor(private httpClient: HttpClient) {}
 
   getTripById(id: string) {
+    // this.httpClient.get("http://localhost:8080/api/getItem", {
+    //   params: new HttpParams().set("id", id)
+    // }).subscribe(res => {
+    //   console.log(res);
+    // });
+    
     return this.travels.filter(param => {
       return param.id == id;
     })
@@ -60,5 +66,12 @@ export class TravelsService {
     }
 
     return filtredTravels;
+  }
+
+  createNewTravel() {
+    this.httpClient.post("http://localhost:8080/api/createTravel", { "username": "johnny", "password": "password" })
+      .subscribe(res => {
+        console.log(res)
+      })
   }
 }

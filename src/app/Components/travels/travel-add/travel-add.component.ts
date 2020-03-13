@@ -16,7 +16,7 @@ export class TravelAddComponent implements OnInit {
   }
   
   onAddTravel() {
-    const newTravel = this.travel;
+    this.travelsService.createNewTravel();
   }
 
 }

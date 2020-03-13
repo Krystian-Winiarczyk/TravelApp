@@ -17,7 +17,7 @@ export class TravelDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.ar.params.subscribe(param => {
+    this.ar.queryParams.subscribe(param => {
       this.travel = this.travelsService.getTripById(param.id)[0];
     });
   }

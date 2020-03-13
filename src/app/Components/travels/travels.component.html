@@ -7,10 +7,10 @@
         <div class="card-header">{{travel.country}}</div>
         <div class="card-body">
           <h5 class="card-title">
-            {{ travel.hotelName }}
+            {{ travel.hotel.name }}
           </h5>
           <p class="card-text">{{travel.description.slice(0, 120)}} ...</p>
-          <a href="#" class="btn btn-primary" routerLink="/travel/{{travel.id}}">Read more</a>
+          <button class="btn btn-primary" (click)="onRedirectToTravelDetails(travel.id)">Read more</button>
         </div>
       </div>
     </div>

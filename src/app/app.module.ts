@@ -15,11 +15,12 @@ import { TravelsFilterComponent } from './Components/travels/travels-filter/trav
 import { TravelHotelComponent } from './Components/travels/travel-details/travel-hotel/travel-hotel.component';
 import { TravelTransportComponent } from './Components/travels/travel-details/travel-transport/travel-transport.component';
 import { TravelDescComponent } from './Components/travels/travel-details/travel-desc/travel-desc.component';
+import {HttpClientModule} from '@angular/common/http';
 
 const routers: Routes = [
   { path: "", component: TravelsComponent },
   { path: "travel/add", component: TravelAddComponent },
-  { path: "travel/:id", component: TravelDetailsComponent }
+  { path: "travel", component: TravelDetailsComponent }
 ];
 
 @NgModule({
@@ -40,7 +41,8 @@ const routers: Routes = [
     RouterModule.forRoot(routers),
     FormsModule,
     BrowserAnimationsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
