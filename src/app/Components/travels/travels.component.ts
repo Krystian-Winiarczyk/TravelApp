@@ -3,19 +3,23 @@ import {Travel} from '../../Models/travel.model';
 import {TravelsService} from '../../Services/travels.service';
 import {TravelFilterModel} from '../../Models/travel-filter.model';
 import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-travels',
   templateUrl: './travels.component.html',
   styleUrls: ['./travels.component.scss']
 })
-export class TravelsComponent implements OnInit {
+export class TravelsComponent {
   travels: Travel[] = [];
 
-  constructor(private travelsService: TravelsService, private router: Router) {}
+  constructor(private travelsService: TravelsService, private router: Router, private httpClient: HttpClient) {}
 
   ngOnInit() {
-    this.travels = this.travelsService.getTravels();
+    this.httpClient.get("http://localhost:8080/api/getItems").subscribe(res => {
+        this.travels = res as Travel[];
+        this.travelsService.onInitTravels(res as Travel[])
+      });
   }
   
   onChange(event: TravelFilterModel) {
