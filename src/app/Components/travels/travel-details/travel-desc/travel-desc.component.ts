@@ -7,14 +7,20 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./travel-desc.component.scss']
 })
 export class TravelDescComponent implements OnInit {
-  @Input() travel: { description, personsCount, name, price, atuts, tripStars };
-  stars: number[];
+  @Input() travel?;
+  stars?: number[];
   faStar = faStar;
 
-  constructor() { }
+  constructor() {
+  }
 
+  ngDoCheck() {
+    if (this.travel)
+      this.stars = Array(this.travel.tripStars);
+  }
+  
   ngOnInit() {
-    this.stars = Array(this.travel.tripStars);
+
   }
 
 }

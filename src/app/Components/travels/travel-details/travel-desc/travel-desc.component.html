@@ -1,23 +1,23 @@
 <div class="row my-3">
   <div class="col-md-8">
     <div class="ml-2">
-      <h1 class="display-4">{{travel.name}}</h1>
+      <h1 class="display-4">{{travel?.name}}</h1>
       <span *ngFor="let star of stars" style="color: gold">
           <fa-icon [icon]="faStar"></fa-icon>
       </span>
     </div>
     <p class="mt-5 lead">
-      {{travel.description}}
+      {{travel?.description}}
     </p>
   </div>
   <div class="col-md-4">
     <div class="alert alert-info text-center" role="alert">
-      {{travel.personsCount}} Osoby - {{travel.price}} PLN
+      {{travel?.personsCount}} Osoby - {{travel?.price}} PLN
     </div>
     <div class="card">
       <h5 class="card-header text-center">Atuty</h5>
       <ul class="list-group">
-        <li class="list-group-item" *ngFor="let attr of travel.atuts">{{attr}}</li>
+        <li class="list-group-item" *ngFor="let attr of travel?.atuts">{{attr}}</li>
       </ul>
     </div>
   </div>

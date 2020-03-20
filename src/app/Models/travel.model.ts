@@ -14,7 +14,6 @@ export class Travel {
     public atuts: string[],
     public imagesPaths: string[],
     public price: number,
-    public transport: any,
-    // public _class: string
+    public transport: string
   ) {}
 }

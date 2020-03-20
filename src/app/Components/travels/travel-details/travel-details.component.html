@@ -1,13 +1,13 @@
 <div class="container-c">
-  <app-carousel [slides]="travel.imagesPaths"></app-carousel>
+  <app-carousel [slides]="travel?.imagesPaths"></app-carousel>
 </div>
 
 <div class="container">
 <!--  Travel Description and atuts -->
   <app-travel-desc [travel]="travel"></app-travel-desc>
 <!--  Travel transport -->
-  <app-travel-transport [transport]="travel.transport"></app-travel-transport>
+  <app-travel-transport [transport]="travel?.transport" [country]="travel?.country"></app-travel-transport>
 <!--  Hotel desc -->
-  <app-travel-hotel [hotel]="travel.hotel"></app-travel-hotel>
+  <app-travel-hotel [hotel]="travel?.hotel"></app-travel-hotel>
 
 </div>

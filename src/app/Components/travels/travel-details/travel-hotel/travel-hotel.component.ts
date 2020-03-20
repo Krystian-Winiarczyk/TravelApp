@@ -12,9 +12,12 @@ export class TravelHotelComponent implements OnInit {
   faStar = faStar;
   
   constructor() { }
-
-  ngOnInit() {
+  
+  ngDoCheck() {
+    if (this.hotel)
     this.hotelStars = Array(this.hotel.stars);
   }
+
+  ngOnInit() { }
 
 }

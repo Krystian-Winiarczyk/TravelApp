@@ -8,13 +8,20 @@ import { faStar, faPlane, faMapMarkerAlt, faBus } from '@fortawesome/free-solid-
 })
 export class TravelTransportComponent implements OnInit {
   @Input() transport;
+  @Input() country;
   faMap = faMapMarkerAlt;
-  faTransport: any;
+  faTransport: any = faBus;
 
-  constructor() { }
+  constructor() { 
+  }
 
+  ngDoCheck() {
+    console.log(this.country)
+    if (this.transport)
+      this.faTransport = this.transport === "Samolot" ? faPlane : faBus;
+  }
+  
   ngOnInit() {
-    this.faTransport = this.transport.type === "Samolot" ? faPlane : faBus;
   }
 
 }

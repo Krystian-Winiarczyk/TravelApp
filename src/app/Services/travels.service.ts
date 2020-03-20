@@ -15,9 +15,12 @@ export class TravelsService{
   }
   
   getTripById(id: string) {
-    return this.travels.filter(param => {
-      return param.id == id;
-    })
+    // TODO 
+    // Need to do quert to API and get traval from database
+    // return this.travels.filter(param => {
+    //   return param.id == id;
+    // })
+    return this.httpClient.get("http://localhost:8080/api/getItem", { params: { id: id } });
   }
 
   getTravels() {
