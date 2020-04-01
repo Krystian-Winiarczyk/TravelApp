@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { TravelDetailsComponent } from './Components/travels/travel-details/travel-details.component';
 import { RouterModule, Routes} from "@angular/router";
 import { HeaderComponent } from './Components/header/header.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CarouselComponent } from './Components/carousel/carousel.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
@@ -16,6 +16,7 @@ import { TravelHotelComponent } from './Components/travels/travel-details/travel
 import { TravelTransportComponent } from './Components/travels/travel-details/travel-transport/travel-transport.component';
 import { TravelDescComponent } from './Components/travels/travel-details/travel-desc/travel-desc.component';
 import {HttpClientModule} from '@angular/common/http';
+import { NgxPaginationModule } from "ngx-pagination";
 
 const routers: Routes = [
   { path: "", component: TravelsComponent },
@@ -42,7 +43,9 @@ const routers: Routes = [
     FormsModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

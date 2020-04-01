@@ -11,6 +11,7 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./travels.component.scss']
 })
 export class TravelsComponent {
+  p: number = 1;
   travels: Travel[] = [];
 
   constructor(private travelsService: TravelsService, private router: Router, private httpClient: HttpClient) {}
@@ -19,7 +20,7 @@ export class TravelsComponent {
     this.httpClient.get("http://localhost:8080/api/getItems").subscribe(res => {
         this.travels = res as Travel[];
         this.travelsService.onInitTravels(res as Travel[])
-      });
+    });
   }
   
   onChange(event: TravelFilterModel) {

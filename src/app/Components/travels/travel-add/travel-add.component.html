@@ -1,1 +1,45 @@
-<button (click)="onAddTravel()">Add test travel</button>
+<!--<button (click)="onAddTravel()">Add test travel</button>-->
+<form [formGroup]="travelForm">
+  <label>
+    Travel Name:
+    <input type="text" formControlName="name">
+  </label>
+  <label>
+    Persons:
+    <input type="number" formControlName="personsCount">
+  </label>
+  <label>
+    Country:
+    <input type="text" formControlName="country">
+  </label>
+  <label>
+    Description:
+    <input type="text" formControlName="description">
+  </label>
+  <label>
+    Trip Stars:
+    <input type="text" formControlName="tripStars">
+  </label>
+  <label>
+    Trip Start Data:
+    <input type="text" formControlName="startDate">
+  </label>
+  <label>
+    Trip End Data:
+    <input type="text" formControlName="endDate">
+  </label>
+  <div formArrayName="atuts">
+    <label>
+      Add some trip atuts:
+      <input type="text">
+      <button (click)="onAddAtut()">Add atut</button>
+    </label>
+    <div *ngFor="let atut of atuts.controls">
+      {{atut.value}}
+    </div>
+  </div>
+</form>
+<input type="file" multiple="multiple" (change)="onChange($event)">
+<div *ngFor="let file of files">
+  {{file.name}}
+</div>

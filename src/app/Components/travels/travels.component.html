@@ -1,7 +1,7 @@
 <app-travels-filter (onFilterTravels)="onChange($event)"></app-travels-filter>
 <div class="container mt-5">
   <div class="row">
-    <div class="col-lg-4 col-md-6 my-2" *ngFor="let travel of travels">
+    <div class="col-lg-4 col-md-6 my-2" *ngFor="let travel of travels | paginate: { itemsPerPage: 6, currentPage: p}">
       <div class="card mx-auto" style="width: 20rem;">
         <img src="{{travel.imagesPaths[0]}}" class="card-img-top" alt="..." style="min-height: 250px; object-fit: cover">
         <div class="card-header">{{travel.country}}</div>
@@ -14,5 +14,8 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="row">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>
