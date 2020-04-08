@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {TravelsService} from '../../../Services/travels.service';
 import {Travel} from '../../../Models/travel.model';
 import {FormArray, FormBuilder} from "@angular/forms";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 
 @Component({
   selector: 'app-travel-add',
@@ -12,6 +13,7 @@ export class TravelAddComponent implements OnInit {
   travel: Travel;
   atut: string;
   files: File[] = [];
+  urls: any[] = [];
   
   travelForm = this.formBuilder.group({
     name: [''],
@@ -36,7 +38,7 @@ export class TravelAddComponent implements OnInit {
     }))
   });
 
-  constructor(private travelsService: TravelsService, private formBuilder: FormBuilder) { }
+  constructor(private travelsService: TravelsService, private formBuilder: FormBuilder, private http: HttpClient) { }
 
   ngOnInit() {
   }
@@ -54,8 +56,37 @@ export class TravelAddComponent implements OnInit {
   }
   
   onChange(event) {
-    console.log(event.target.files);
-    this.files = event.target.files;
+    let files = event.target.files;
+    if (files) {
+      this.files = event.target.files;
+      for (let i = 0; i < files.length; i++) {
+        let reader = new FileReader();
+        reader.onloadstart = (e) => {
+          this.urls.push({result: '', loaded: false })
+        };
+        
+        reader.onload = (e: any) => {
+          this.urls[i] = { result: e.target.result, loaded: true };
+          // this.urls.push(e.target.result);
+        };
+        reader.readAsDataURL(files[i]);
+      }
+    }
+  }
+  
+  onTest() {
+    const formBody = new FormData();
+    for (let file of this.files) {
+      formBody.append('files', file);
+    }
+    // formBody.append("files", JSON.stringify(this.files));
+    this.http.post("http://localhost:8080/api/testImages", formBody, {
+      reportProgress: true,
+      responseType: 'text'
+    })
+      .subscribe(res => {
+        console.log(res)
+      })
   }
 
 }

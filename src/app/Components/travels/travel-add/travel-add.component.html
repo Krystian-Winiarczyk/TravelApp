@@ -39,7 +39,9 @@
     </div>
   </div>
 </form>
-<input type="file" multiple="multiple" (change)="onChange($event)">
-<div *ngFor="let file of files">
-  {{file.name}}
+<input type="file" multiple (change)="onChange($event)">
+<div *ngFor="let url of urls">
+  <img [src]="url.result" *ngIf="url.loaded; else loading" class="image" />
+  <ng-template #loading>Loading ...</ng-template>
 </div>
+<button (click)="onTest()">Test images</button>
