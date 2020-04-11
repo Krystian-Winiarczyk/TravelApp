@@ -31,12 +31,34 @@
   <div formArrayName="atuts">
     <label>
       Add some trip atuts:
-      <input type="text">
-      <button (click)="onAddAtut()">Add atut</button>
+      <input type="text" #atut>
+      <button (click)="onAddAtut(atut.value)">Add atut</button>
     </label>
     <div *ngFor="let atut of atuts.controls">
       {{atut.value}}
     </div>
+  </div>
+  <label>
+    Price:
+    <input type="number" formControlName="price">
+  </label>
+  <label>
+    Transport:
+    <input type="text" formControlName="transport">
+  </label>
+  <div formGroupName="hotel">
+    <label>
+      Hotel Name:
+      <input type="text" formControlName="name">
+    </label>
+    <label>
+      Stars:
+      <input type="number" formControlName="stars">
+    </label>
+    <label>
+      Description:
+      <input type="text" formControlName="description">
+    </label>
   </div>
 </form>
 <input type="file" multiple (change)="onChange($event)">

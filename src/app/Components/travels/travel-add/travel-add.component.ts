@@ -26,9 +26,6 @@ export class TravelAddComponent implements OnInit {
     atuts: this.formBuilder.array(
       [this.formBuilder.control('')]
     ),
-    imagesPaths: this.formBuilder.array(
-      [this.formBuilder.control('')]
-    ),
     price: [''],
     transport: [''],
     hotel: this.formBuilder.group(({
@@ -51,8 +48,8 @@ export class TravelAddComponent implements OnInit {
     return this.travelForm.get("atuts") as FormArray;
   }
   
-  onAddAtut() {
-    this.atuts.push(this.formBuilder.control('ssadasd'));
+  onAddAtut(value) {
+    this.atuts.push(this.formBuilder.control(value));
   }
   
   onChange(event) {
@@ -67,7 +64,6 @@ export class TravelAddComponent implements OnInit {
         
         reader.onload = (e: any) => {
           this.urls[i] = { result: e.target.result, loaded: true };
-          // this.urls.push(e.target.result);
         };
         reader.readAsDataURL(files[i]);
       }
@@ -76,10 +72,10 @@ export class TravelAddComponent implements OnInit {
   
   onTest() {
     const formBody = new FormData();
+    formBody.append("travel", JSON.stringify(this.travelForm.value));
     for (let file of this.files) {
       formBody.append('files', file);
     }
-    // formBody.append("files", JSON.stringify(this.files));
     this.http.post("http://localhost:8080/api/testImages", formBody, {
       reportProgress: true,
       responseType: 'text'

@@ -2,7 +2,6 @@ import {Hotel} from './hotel.model';
 
 export class Travel {
   constructor(
-    public id: string,
     public name: string,
     public personsCount: number,
     public country: string,
@@ -12,8 +11,8 @@ export class Travel {
     public startDate: string,
     public endDate: string,
     public atuts: string[],
-    public imagesPaths: string[],
     public price: number,
-    public transport: string
+    public transport: string,
+    public id?: string,
   ) {}
 }
